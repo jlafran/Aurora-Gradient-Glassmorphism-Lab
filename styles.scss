@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #0e0e0e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+  font-family: Helvetica, Arial;
+}
+div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 52px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 36px;
+}
+
+.wrapper {
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  position: relative;
+  overflow:hidden; /* Cropea la imagen que sale del contenedor */
+  border-radius: 40px; /* Bordes Redondos */
+}
+.wrapper div { /* .base y agregar antes de one two etc */
+  position: absolute; /* Hace que se quede dentro del contenedor */
+  filter: blur(60px); /* Blur */
+  opacity: 0.8;
+  margin-bottom: -100px;
+}
+
+/* Blur */
+
+  .one {
+    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+    background-color: #373372;
+    left:-50px;
+    top:-300px;
+    z-index: 3;
+  }
+
+  .two {
+    width: 500px;
+    height: 800px;
+    background-color: #7C336C;
+    bottom:-30px;
+    left:-80px;
+  }
+
+  .three {
+    border-radius: 100%;
+    width: 450px;
+    height: 450px;
+    bottom:-80px;
+    right:-100px;
+    background-color: #B3588A;
+  }
+
+/* Radial gradient */
+  .radial {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    overflow:hidden;
+    border-radius: 40px;
+    background-color: #fff;
+    background-image:
+      radial-gradient(at top left, #F0ACE0, transparent),
+      radial-gradient(at top right, #FFA4B2, transparent),
+      radial-gradient(at bottom left, #A7D3F2, transparent);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+/* Image Blur */
+  .image-square {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    overflow:hidden;
+    border-radius: 40px;
+  }
+  img {
+    filter: blur(60px);
+  }
+
+/* Animation */
+
+@keyframes fly {
+  100% {
+    transform:rotate(1turn) translate(100px) rotate(-1turn); /* I used transform:rotate(1turn) 
+                                                              translate(100px) rotate(-1turn);
+                                                              to create movement on the circle path.*/
+  }
+}
+
+@keyframes flyPlus {
+  100% {
+    transform:rotate(-1turn) translate(100px) rotate(1turn);
+  }
+}
+
+.one-animation {
+  border-radius: 100%;
+  width: 600px;
+  height: 600px;
+  background-color: #373372;
+  left:-50px;
+  top:-300px;
+  z-index: 3;
+  animation: fly 12s linear infinite;
+  transform:rotate(0) translate(80px) rotate(0);
+}
+
+.two-animation {
+  width: 500px;
+  height: 800px;
+  background-color: #7C336C;
+  bottom:-30px;
+  left:-80px;
+}
+
+.three-animation {
+  border-radius: 100%;
+  width: 450px;
+  height: 450px;
+  bottom:-80px;
+  right:-100px;
+  background-color: #B3588A;
+  animation: flyPlus 8s linear infinite;
+  transform:rotate(0) translate(100px) rotate(0);
+}
